@@ -210,3 +210,47 @@
     </div>
   </div>  
 </script>
+
+
+<script type="text/template" id="overCargoSizeTpl">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4 class="size_visible_toggler" id="overCargoSizeVisibleToggler">Ввести размеры</h4>
+    </div>        
+  </div>        
+
+  <div class="row size_container <%= visibility %>">
+    <div class="col-xs-4 form-group">
+      <label>Длина</label>
+
+      <div class="input-group">
+        <input type="text" class="form-control" id="fldoverCargoSizeLength" value="<%= length %>" name="overCargoSizeLength">
+        <span class="input-group-addon">м</span>
+      </div>
+
+      <div id="errMsg_overCargoSizeLength" class="help-block"></div>
+    </div>
+
+    <div class="col-xs-4 form-group">
+      <label>Ширина</label>
+
+      <div class="input-group">
+        <input type="text" class="form-control" id="fldoverCargoSizeWidth" value="<%= width %>" name="overCargoSizeWidth">
+        <span class="input-group-addon">м</span>
+      </div>
+
+      <div id="errMsg_overCargoSizeWidth" class="help-block"></div>
+    </div>
+
+    <div class="col-xs-4 form-group">
+      <label>Высота</label>
+
+      <div class="input-group">
+        <input type="text" class="form-control" id="fldoverCargoSizeHeight" value="<%= height %>" name="overCargoSizeHeight">
+        <span class="input-group-addon">м</span>
+      </div>
+
+      <div id="errMsg_overCargoSizeHeight" class="help-block"></div>
+    </div>                    
+  </div> 
+</script>
