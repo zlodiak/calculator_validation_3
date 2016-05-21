@@ -14,6 +14,10 @@
     </div>     
 
     <div class="row">
+      <div class="col-xs-12" id="overCargoWidgetCont"></div>
+    </div>       
+
+    <div class="row">
       <div class="col-xs-12">
         <div class="btn btn-default pull-right" id="calcSubmitBtn">Рассчитать</div>
       </div>
@@ -138,28 +142,37 @@
 <script type="text/template" id="overCargoTpl">
   <div class="panel panel-default">
     <div class="panel-body row">
-      <h2 class="col-xs-12">
-        <input 
-          class="over_cargo_state_checkbox" 
-          id="overCargoStateCheckbox" 
-          type="checkbox" 
-          <%= activeState %> 
-        >
-        <span>Негабаритный груз</span>
-      </h2>
+      <div class="col-xs-12">
+s
 
-      <div class="widget_content form-group col-xs-12 <%= visibility %>">
-        <div class="">
-          <label>Вес</label>
-          <input type="text" class="form-control" id="fldOverCargoWeight">
-          <div id="errMsgOverCargoWeight" class="help-block"></div>
+        <h2 class="header_widget">Негабаритный груз</h2>
+      </div>
+
+      <div class="widget_content col-xs-12">
+        <div class="row">
+          <div class="col-xs-6 form-group">
+            <label>Вес</label>
+
+            <div class="input-group">
+              <input type="text" class="form-control" id="fldOverCargoWeight" name="overCargoWeight">
+              <span class="input-group-addon">кг</span>
+            </div>
+
+            <div id="errMsg_overCargoWeightt" class="help-block"></div>
+          </div>
+
+          <div class="col-xs-6 form-group">
+            <label>Объём</label>
+
+            <div class="input-group">
+            <input type="text" class="form-control" id="fldOverCargoVolume" name="overCargoVolume"> 
+              <span class="input-group-addon">м<sup>3</sup></span>
+            </div>
+
+            <div id="errMsg_overCargoVolume" class="help-block"></div>      
+          </div>
         </div>
 
-        <div class="">
-          <label>Объём</label>
-          <input type="text" class="form-control" id="fldOverCargoVolume">  
-          <div id="errMsgOverCargoVolume" class="help-block"></div>      
-        </div>
       </div>
     </div>
   </div>

@@ -1,13 +1,13 @@
 /*
 INFO: 
-	project: shippingCalculator
+	project: calculator validation
 	browsers: opera/chrome/FF/ie9/safari
 	width: 
 	columns:
-	markup: Sergey Kalinin 05/2016 (prozaik81-2@yandex.ru)
-	use: jq, bootstrap, underscore, backbone
+	markup: Sergey Kalinin 06/2016 (prozaik81-2@yandex.ru)
+	use: jq, bootstrap, underscore, backbone, backbone-validation
 	desc: 	
-	version 3
+	version 2
 */	
 
 /****************************************************************************** COMMON_STYLES */
@@ -48,6 +48,10 @@ INFO:
 	font-weight: bold;
 
 	cursor: pointer;
+}
+
+.shipp_calc .header_widget{
+	display: inline-block;
 }
 
 /****************************************************************************** GLOBAL_layout */

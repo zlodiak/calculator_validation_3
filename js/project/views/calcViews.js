@@ -7,11 +7,11 @@ APP.CalcView = Backbone.View.extend({
 
     Backbone.Validation.bind(this);
     
+    this.paymentModal =       new APP.PaymentModalView({model: this.model});       
     this.departCityWidget =   new APP.DepartCityView({model: this.model});   
     this.destinCityWidget =   new APP.DestinCityView({model: this.model});
     this.shippOptionsWidget = new APP.ShippOptionsView({model: this.model});   
-    this.paymentModal =       new APP.PaymentModalView({model: this.model});   
-
+    this.overCargoWidget =    new APP.OverCargoView({model: this.model});   
        
     this.render();
   },    
@@ -23,6 +23,7 @@ APP.CalcView = Backbone.View.extend({
     this.$el.find('#departCityWidgetCont').html(this.departCityWidget.render().el);
     this.$el.find('#destinCityWidgetCont').html(this.destinCityWidget.render().el);
     this.$el.find('#shippOptionsWidgetCont').html(this.shippOptionsWidget.render().el);
+    this.$el.find('#overCargoWidgetCont').html(this.overCargoWidget.render().el);
 
     return this;
   },

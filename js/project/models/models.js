@@ -7,7 +7,9 @@ APP.CalcModel = Backbone.Model.extend({
     shippOptionsVolume: undefined,
     sizeLength: undefined,
     sizeWidth: undefined,
-    sizeHeight: undefined   
+    sizeHeight: undefined,
+    overCargoWeight: undefined,
+    overCargoVolume: undefined      
   }, 
 
   validation: {

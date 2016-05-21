@@ -49,6 +49,7 @@ APP.ShippOptionsView = Backbone.View.extend({
 
 });
 
+
 APP.sizeView = Backbone.View.extend({    
   initialize: function() {
     this.listenTo(this.model, 'change:sizeVisibility', this.render);
@@ -78,9 +79,33 @@ APP.sizeView = Backbone.View.extend({
     'click #sizeVisibleToggler' : 'toggleSizeVisible'
   },
 
-  toggleSizeVisible: function() { 
+  toggleSizeVisible: function() { console.log(this.model)
     var sizeVisibility = this.model.get('sizeVisibility');
     this.model.set({sizeVisibility: !sizeVisibility});
+  }
+
+});
+
+
+APP.OverCargoView = Backbone.View.extend({    
+
+  initialize: function() {
+
+  },
+
+  id: 'overCargoWidget',
+
+  template: _.template($('#overCargoTpl').html()),
+
+  render: function () {  
+    var over_cargo_visibility = this.model.get('overCargoVisibility') ? 'show' : 'hide';
+        //overCargoSizeElem = this.sizeWidget.render().el;
+
+    this.$el.html(this.template());
+
+    //this.$el.find('.widget_content').append(overCargoSizeElem);
+    
+    return this;
   }
 
 });
