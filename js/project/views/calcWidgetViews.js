@@ -37,8 +37,7 @@ APP.ShippOptionsView = Backbone.View.extend({
   template: _.template($('#shippOptionsTpl').html()),
 
   render: function () {  
-    var size_visibility = this.model.get('sizeVisibility') ? 'show' : 'hide',
-        sizeElem = this.sizeWidget.render().el;
+    var sizeElem = this.sizeWidget.render().el;
 
     this.$el.html(this.template());
 
@@ -60,7 +59,7 @@ APP.sizeView = Backbone.View.extend({
   template: _.template($('#sizeTpl').html()),
 
   render: function () {  
-    var size_visibility = this.model.get('sizeVisibility') ? 'show' : 'hide';
+    var size_visibility = APP.shippOptionsSizesState ? 'show' : 'hide';
 
     this.$el.html(this.template({
       size_visibility: size_visibility,
@@ -69,9 +68,6 @@ APP.sizeView = Backbone.View.extend({
       heightInitVal: this.model.get('sizeHeight')
     }));
 
-
-    APP.shippOptionsSizesState = this.model.get('sizeVisibility') ? true : false;
-
     return this;
   },
 
@@ -79,9 +75,9 @@ APP.sizeView = Backbone.View.extend({
     'click #sizeVisibleToggler' : 'toggleSizeVisible'
   },
 
-  toggleSizeVisible: function() { console.log(this.model)
-    var sizeVisibility = this.model.get('sizeVisibility');
-    this.model.set({sizeVisibility: !sizeVisibility});
+  toggleSizeVisible: function() {
+    APP.shippOptionsSizesState = !APP.shippOptionsSizesState;
+    this.render();
   }
 
 });
