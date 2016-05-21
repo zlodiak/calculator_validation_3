@@ -59,13 +59,13 @@ APP.sizeView = Backbone.View.extend({
   template: _.template($('#sizeTpl').html()),
 
   render: function () {  
-    var size_visibility = APP.shippOptionsSizesState ? 'show' : 'hide';
+    var visibility = APP.shippOptionsSizesState ? 'show' : 'hide';
 
     this.$el.html(this.template({
-      size_visibility: size_visibility,
-      lengthInitVal: this.model.get('sizeLength'),
-      widthInitVal: this.model.get('sizeWidth'),
-      heightInitVal: this.model.get('sizeHeight')
+      visibility: visibility,
+      length: this.model.get('sizeLength'),
+      width: this.model.get('sizeWidth'),
+      height: this.model.get('sizeHeight')
     }));
 
     return this;
@@ -94,14 +94,26 @@ APP.OverCargoView = Backbone.View.extend({
   template: _.template($('#overCargoTpl').html()),
 
   render: function () {  
-    var over_cargo_visibility = this.model.get('overCargoVisibility') ? 'show' : 'hide';
-        //overCargoSizeElem = this.sizeWidget.render().el;
+    var visibility = APP.overCargoState ? 'show' : 'hide',
+        checkboxActiveState = APP.overCargoState ? 'checked' : '';
 
-    this.$el.html(this.template());
-
-    //this.$el.find('.widget_content').append(overCargoSizeElem);
+    this.$el.html(this.template({
+      checkboxActiveState: checkboxActiveState,
+      visibility: visibility,
+      weight: this.model.get('overCargoWeight'),
+      volume: this.model.get('overCargoVolume')
+    }));
     
     return this;
+  },
+
+  events: {
+    'click #overCargoStateCheckbox' : 'toggleOverCargoVisible'
+  },
+
+  toggleOverCargoVisible: function() {
+    APP.overCargoState = !APP.overCargoState;
+    this.render();
   }
 
 });

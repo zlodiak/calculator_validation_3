@@ -2,6 +2,7 @@ APP.CalcView = Backbone.View.extend({
 
   initialize: function() {       
     APP.shippOptionsSizesState = false;
+    APP.overCargoState = false;
 
     this.model = new APP.CalcModel();
 

@@ -102,12 +102,12 @@
     </div>        
   </div>        
 
-  <div class="row size_container <%= size_visibility %>">
+  <div class="row size_container <%= visibility %>">
     <div class="col-xs-4 form-group">
       <label>Длина</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldSizeLength" value="<%= lengthInitVal %>" name="sizeLength">
+        <input type="text" class="form-control" id="fldSizeLength" value="<%= length %>" name="sizeLength">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -118,7 +118,7 @@
       <label>Ширина</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldSizeWidth" value="<%= widthInitVal %>" name="sizeWidth">
+        <input type="text" class="form-control" id="fldSizeWidth" value="<%= width %>" name="sizeWidth">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -129,7 +129,7 @@
       <label>Высота</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldSizeHeight" value="<%= heightInitVal %>" name="sizeHeight">
+        <input type="text" class="form-control" id="fldSizeHeight" value="<%= height %>" name="sizeHeight">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -141,20 +141,25 @@
 
 <script type="text/template" id="overCargoTpl">
   <div class="panel panel-default">
-    <div class="panel-body row">
+    <div class="panel-body row ">
       <div class="col-xs-12">
-s
+          <input 
+            class="over_cargo_state_checkbox" 
+            id="overCargoStateCheckbox" 
+            type="checkbox" 
+            <%= checkboxActiveState %> 
+          >
 
         <h2 class="header_widget">Негабаритный груз</h2>
       </div>
 
       <div class="widget_content col-xs-12">
-        <div class="row">
+        <div class="row <%= visibility %>">
           <div class="col-xs-6 form-group">
             <label>Вес</label>
 
             <div class="input-group">
-              <input type="text" class="form-control" id="fldOverCargoWeight" name="overCargoWeight">
+              <input type="text" class="form-control" id="fldOverCargoWeight" name="overCargoWeight" value="<%= weight %>">
               <span class="input-group-addon">кг</span>
             </div>
 
@@ -165,7 +170,7 @@ s
             <label>Объём</label>
 
             <div class="input-group">
-            <input type="text" class="form-control" id="fldOverCargoVolume" name="overCargoVolume"> 
+            <input type="text" class="form-control" id="fldOverCargoVolume" name="overCargoVolume" value="<%= volume %>"> 
               <span class="input-group-addon">м<sup>3</sup></span>
             </div>
 
