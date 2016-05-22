@@ -13,7 +13,6 @@
 <script src="js/project/views/overCargoViews.js"></script> 
 <script src="js/project/views/citiesViews.js"></script> 
 <script src="js/project/views/shippOptionsViews.js"></script> 
-<script src="js/project/views/calcWidgetViews.js"></script> 
 <script src="js/project/views/calcViews.js"></script> 
 
 <script>

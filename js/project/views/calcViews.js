@@ -1,21 +1,21 @@
 APP.CalcView = Backbone.View.extend({  
 
   initialize: function() {       
-    APP.shippOptionsSizesState = false;
+    APP.shippOptionsSizeState = false;
     APP.overCargoState = false;
-    APP.overCargoSizesState = false;
+    APP.overCargoSizeState = false;
 
-    this.model = new APP.CalcModel();
-
-    Backbone.Validation.bind(this);
+    this.model = new APP.CalcModel();    
     
-    this.paymentModal =       new APP.PaymentModalView({model: this.model});       
-    this.departCityWidget =   new APP.DepartCityView({model: this.model});   
-    this.destinCityWidget =   new APP.DestinCityView({model: this.model});
-    this.shippOptionsWidget = new APP.ShippOptionsView({model: this.model});   
-    this.overCargoWidget =    new APP.OverCargoView({model: this.model});   
+    this.paymentModal =         new APP.PaymentModalView({model: this.model});       
+    this.departCityWidget =     new APP.DepartCityView({model: this.model});   
+    this.destinCityWidget =     new APP.DestinCityView({model: this.model});
+    this.shippOptionsWidget =   new APP.ShippOptionsView({model: this.model});   
+    this.overCargoWidget =      new APP.OverCargoView({model: this.model});       
        
     this.render();
+
+    Backbone.Validation.bind(this);
   },    
 
   template: _.template($('#calcTpl').html()),
@@ -61,7 +61,7 @@ APP.CalcView = Backbone.View.extend({
     console.log('shippOptions', shippOptions)
     console.log('sizes', sizes)*/
 
-    if(APP.shippOptionsSizesState) {
+    if(APP.shippOptionsSizeState) {
       if(cities && shippOptions && sizes) {
         this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
         $('#paymentModal').modal('show') 
@@ -82,7 +82,7 @@ APP.CalcView = Backbone.View.extend({
         height = this.model.get('sizeHeight'),
         price = (weight + volume) / 20;
 
-    if(length && width && height && APP.shippOptionsSizesState) { price += (length * width) / height };
+    if(length && width && height && APP.shippOptionsSizeState) { price += (length * width) / height };
 
     return parseInt(price, 10);
   }

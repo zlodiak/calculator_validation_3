@@ -176,6 +176,8 @@
 
             <div id="errMsg_overCargoVolume" class="help-block"></div>      
           </div>
+
+          <div class="col-xs-12 form-group size_content"></div>
         </div>
 
       </div>
@@ -235,7 +237,7 @@
       <label>Ширина</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldoverCargoSizeWidth" value="<%= width %>" name="overCargoSizeWidth">
+        <input type="text" class="form-control" id="fldOverCargoSizeWidth" value="<%= width %>" name="overCargoSizeWidth">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -246,7 +248,7 @@
       <label>Высота</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldoverCargoSizeHeight" value="<%= height %>" name="overCargoSizeHeight">
+        <input type="text" class="form-control" id="fldOverCargoSizeHeight" value="<%= height %>" name="overCargoSizeHeight">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -254,3 +256,5 @@
     </div>                    
   </div> 
 </script>
+
+

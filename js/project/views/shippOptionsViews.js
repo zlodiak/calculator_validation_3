@@ -1,7 +1,7 @@
 APP.ShippOptionsView = Backbone.View.extend({    
 
   initialize: function() {
-    this.sizeWidget = new APP.sizeView({model: this.model});
+    this.sizeWidget = new APP.SizeView({model: this.model});
   },
 
   id: 'shippOptionsWidget',
@@ -21,10 +21,7 @@ APP.ShippOptionsView = Backbone.View.extend({
 });
 
 
-APP.sizeView = Backbone.View.extend({    
-  initialize: function() {
-    this.listenTo(this.model, 'change:sizeVisibility', this.render);
-  },
+APP.SizeView = Backbone.View.extend({    
 
   id: 'sizeWidget',
 
@@ -44,10 +41,10 @@ APP.sizeView = Backbone.View.extend({
   },
 
   events: {
-    'click #sizeVisibleToggler' : 'toggleSizeVisible'
+    'click #sizeVisibleToggler' : 'toggleVisible'
   },
 
-  toggleSizeVisible: function() {
+  toggleVisible: function() {
     APP.shippOptionsSizesState = !APP.shippOptionsSizesState;
     this.render();
   }
