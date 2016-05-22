@@ -6,7 +6,7 @@ APP.CalcView = Backbone.View.extend({
     APP.overCargoSizeState = false;
 
     this.model = new APP.CalcModel();    
-    
+      
     this.paymentModal =         new APP.PaymentModalView({model: this.model});       
     this.departCityWidget =     new APP.DepartCityView({model: this.model});   
     this.destinCityWidget =     new APP.DestinCityView({model: this.model});
@@ -64,12 +64,12 @@ APP.CalcView = Backbone.View.extend({
     if(APP.shippOptionsSizeState) {
       if(cities && shippOptions && sizes) {
         this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
-        $('#paymentModal').modal('show') 
+        $('#paymentModal').modal('show'); 
       };
     } else {
       if(cities && shippOptions) {
         this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
-        $('#paymentModal').modal('show') 
+        $('#paymentModal').modal('show'); 
       };
     };
   },
@@ -98,6 +98,20 @@ APP.PaymentModalView = Backbone.View.extend({
 
   render: function (data) { 
     this.$el.html(this.template(data));
+    return this;
+  }
+
+});
+
+
+APP.ExtraRulesModalView = Backbone.View.extend({     
+
+  tagName: 'div',
+
+  template: _.template($('#extraRulesModalTpl').html()),
+
+  render: function () { 
+    this.$el.html(this.template());
     return this;
   }
 

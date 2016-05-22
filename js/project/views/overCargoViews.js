@@ -1,5 +1,9 @@
 APP.OverCargoView = Backbone.View.extend({    
 
+  initialize: function() {
+    
+  },
+
   id: 'overCargoWidget',
 
   template: _.template($('#overCargoTpl').html()),
@@ -27,7 +31,8 @@ APP.OverCargoView = Backbone.View.extend({
 
   events: {
     'click #overCargoStateCheckbox' : 'toggleVisible',
-    'click #overCargoExtraStateCheckbox' : 'toggleExtraValue'
+    'click #overCargoExtraStateCheckbox' : 'toggleExtraValue',
+    'click #overCargoExtraRulesLink' : 'showExtraModal'
   },
 
   toggleVisible: function() {  
@@ -42,7 +47,15 @@ APP.OverCargoView = Backbone.View.extend({
     this.model.set({overCargoExtra: extraValue});
 
     this.render();
-  }  
+  },
+
+  showExtraModal: function() { 
+    var extraRulesModalView =  new APP.ExtraRulesModalView();   
+
+    this.$el.append(extraRulesModalView.render().el);
+
+    $('#extraRulesModal').modal('show'); 
+  }     
 
 });
 

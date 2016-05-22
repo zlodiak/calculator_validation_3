@@ -54,6 +54,16 @@ INFO:
 	display: inline-block;
 }
 
+.over_cargo_extra_rules_link_outer{
+	text-align: right;
+}
+
+	.over_cargo_extra_rules_link{
+		cursor: pointer;
+
+		text-decoration: underline;
+	}
+
 /****************************************************************************** GLOBAL_layout */
 
 
