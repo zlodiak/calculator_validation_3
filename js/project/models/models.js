@@ -9,7 +9,11 @@ APP.CalcModel = Backbone.Model.extend({
     sizeWidth: undefined,
     sizeHeight: undefined,
     overCargoWeight: undefined,
-    overCargoVolume: undefined      
+    overCargoVolume: undefined,
+    overCargoSizeLength: undefined,
+    overCargoSizeWidth: undefined,
+    overCargoSizeHeight: undefined,          
+    overCargoExtra: false         
   }, 
 
   validation: {
@@ -59,18 +63,39 @@ APP.CalcModel = Backbone.Model.extend({
                 ],
 
     overCargoWeight: [ 
-                          { required: true, msg: 'Поле не может быть пустым' },
-                          { pattern: 'number', msg: 'Введите число' },
-                          { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
-                          { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
-                        ],     
+                        { required: true, msg: 'Поле не может быть пустым' },
+                        { pattern: 'number', msg: 'Введите число' },
+                        { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
+                        { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
+                      ],     
 
     overCargoVolume: [ 
-                          { required: true, msg: 'Поле не может быть пустым' },
-                          { pattern: 'number', msg: 'Введите число' },
-                          { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
-                          { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
-                        ]                            
+                        { required: true, msg: 'Поле не может быть пустым' },
+                        { pattern: 'number', msg: 'Введите число' },
+                        { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
+                        { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
+                      ],
+
+    overCargoSizeLength: [ 
+                  { required: true, msg: 'Поле не может быть пустым' },
+                  { pattern: 'number', msg: 'Введите число' },
+                  { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
+                  { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
+                ], 
+
+    overCargoSizeWidth: [
+                { required: true, msg: 'Поле не может быть пустым' },
+                { pattern: 'number', msg: 'Введите число' },
+                { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
+                { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
+              ], 
+
+    overCargoSizeHeight: [ 
+                  { required: true, msg: 'Поле не может быть пустым' },
+                  { pattern: 'number', msg: 'Введите число' },
+                  { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
+                  { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
+                ],                                                  
   }       
 
 });

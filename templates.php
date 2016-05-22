@@ -178,6 +178,22 @@
           </div>
 
           <div class="col-xs-12 form-group size_content"></div>
+
+          <div class="col-xs-12 form-group extra_content">
+            <label>Сверхнегабарит</label>
+
+            <div class="input-group">
+              <input 
+                class="over_cargo_extra_state_checkbox" 
+                id="overCargoExtraStateCheckbox" 
+                type="checkbox" 
+                <%= checkboxExtraActiveState %> 
+              >              
+              <span>груз является сверхнегабаритным</span>
+            </div>
+
+            <div id="errMsg_overCargoWeightt" class="help-block"></div>
+          </div>
         </div>
 
       </div>

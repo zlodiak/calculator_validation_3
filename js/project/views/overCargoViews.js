@@ -6,13 +6,15 @@ APP.OverCargoView = Backbone.View.extend({
 
   render: function () {  
     var visibility = APP.overCargoState ? 'show' : 'hide',
-        checkboxActiveState = APP.overCargoState ? 'checked' : '';    
+        checkboxActiveState = APP.overCargoState ? 'checked' : '',
+        checkboxExtraActiveState = this.model.get('overCargoExtra') ? 'checked' : '';    
 
     this.$el.html(this.template({
       checkboxActiveState: checkboxActiveState,
       visibility: visibility,
       weight: this.model.get('overCargoWeight'),
-      volume: this.model.get('overCargoVolume')
+      volume: this.model.get('overCargoVolume'),
+      checkboxExtraActiveState: checkboxExtraActiveState
     }));
 
     var overCargoSizeWidget =  new APP.OverCargoSizeView({model: this.model}), 
@@ -24,13 +26,23 @@ APP.OverCargoView = Backbone.View.extend({
   },
 
   events: {
-    'click #overCargoStateCheckbox' : 'toggleVisible'
+    'click #overCargoStateCheckbox' : 'toggleVisible',
+    'click #overCargoExtraStateCheckbox' : 'toggleExtraValue'
   },
 
   toggleVisible: function() {  
     APP.overCargoState = !APP.overCargoState;
     this.render();
-  }
+  },
+
+  toggleExtraValue: function() {  
+    var extraValue = this.model.get('overCargoExtra');
+
+    extraValue = !extraValue;
+    this.model.set({overCargoExtra: extraValue});
+
+    this.render();
+  }  
 
 });
 
