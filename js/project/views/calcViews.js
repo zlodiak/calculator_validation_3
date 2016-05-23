@@ -4,6 +4,7 @@ APP.CalcView = Backbone.View.extend({
     APP.shippOptionsSizeState = false;
     APP.overCargoState = false;
     APP.overCargoSizeState = false;
+    APP.lathingState = false;
 
     this.model = new APP.CalcModel();    
       
@@ -12,6 +13,7 @@ APP.CalcView = Backbone.View.extend({
     this.destinCityWidget =     new APP.DestinCityView({model: this.model});
     this.shippOptionsWidget =   new APP.ShippOptionsView({model: this.model});   
     this.overCargoWidget =      new APP.OverCargoView({model: this.model});       
+    this.lathingView =          new APP.LathingView({model: this.model});       
        
     this.render();
 
@@ -26,6 +28,7 @@ APP.CalcView = Backbone.View.extend({
     this.$el.find('#destinCityWidgetCont').html(this.destinCityWidget.render().el);
     this.$el.find('#shippOptionsWidgetCont').html(this.shippOptionsWidget.render().el);
     this.$el.find('#overCargoWidgetCont').html(this.overCargoWidget.render().el);
+    this.$el.find('#lathingWidgetCont').html(this.lathingView.render().el);
 
     return this;
   },

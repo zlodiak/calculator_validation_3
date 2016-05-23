@@ -13,6 +13,7 @@
     <?php require('js/project/tpls/shippOptionsTpls.php'); ?>
     <?php require('js/project/tpls/overCargoTpls.php'); ?>
     <?php require('js/project/tpls/modalsTpls.php'); ?>
+    <?php require('js/project/tpls/lathingTpls.php'); ?>
 
     <?php require('scripts.php'); ?>
   </body>

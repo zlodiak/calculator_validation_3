@@ -15,6 +15,7 @@
 <script src="js/project/views/shippOptionsViews.js"></script> 
 <script src="js/project/views/calcViews.js"></script> 
 <script src="js/project/views/modalsViews.js"></script> 
+<script src="js/project/views/lathingViews.js"></script> 
 
 <script>
   var app = new APP.CalcView({el: '#shippCalc'});

@@ -15,7 +15,11 @@
 
     <div class="row">
       <div class="col-xs-12" id="overCargoWidgetCont"></div>
-    </div>       
+    </div>   
+
+    <div class="row">
+      <div class="col-xs-12" id="lathingWidgetCont"></div>
+    </div>          
 
     <div class="row">
       <div class="col-xs-12">

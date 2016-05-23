@@ -13,7 +13,8 @@ APP.CalcModel = Backbone.Model.extend({
     overCargoSizeLength: undefined,
     overCargoSizeWidth: undefined,
     overCargoSizeHeight: undefined,          
-    overCargoExtra: false         
+    overCargoExtra: false,
+    lathing: undefined          
   }, 
 
   validation: {
