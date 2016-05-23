@@ -1,7 +1,7 @@
 APP.OverCargoView = Backbone.View.extend({    
 
   initialize: function() {
-    
+    this.listenTo(this.model, 'change:overCargoVolume', this.volumeUpdate);
   },
 
   id: 'overCargoWidget',
@@ -55,6 +55,11 @@ APP.OverCargoView = Backbone.View.extend({
     this.$el.append(extraRulesModalView.render().el);
 
     $('#extraRulesModal').modal('show'); 
+  },
+
+  volumeUpdate: function () {  
+    var volume = this.model.get('overCargoVolume');
+    this.$el.find('#fldOverCargoVolume').val(volume);
   }     
 
 });
@@ -80,13 +85,29 @@ APP.OverCargoSizeView = Backbone.View.extend({
   },
 
   events: {
-    'click #overCargoSizeVisibleToggler' : 'toggleVisible'
+    'click #overCargoSizeVisibleToggler' : 'toggleVisible',
+    'blur .size' : 'calculateSize'
   },
 
   toggleVisible: function() { 
     APP.overCargoSizeState = !APP.overCargoSizeState;
     this.render();
-  }
+  },
+
+  calculateSize: function() {
+    var length =  this.$el.find('#fldoverCargoSizeLength').val(),
+        width =   this.$el.find('#fldOverCargoSizeWidth').val(),
+        height =  this.$el.find('#fldOverCargoSizeHeight').val(),
+        volume =  length * width * height;
+
+    if(APP.helper.isNumCheck(volume)) { 
+      this.model.set({overCargoVolume: volume});
+    } else {
+      this.model.set({overCargoVolume: undefined});
+    };  
+
+    console.log(length, width, height, volume, this.model)  
+  } 
 
 });
 
