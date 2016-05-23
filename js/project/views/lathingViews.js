@@ -18,11 +18,11 @@ APP.LathingView = Backbone.View.extend({
   },
 
   events: {
-    'click #overCargoStateCheckbox' : 'toggleVisible'
+    'click #lathingStateCheckbox' : 'toggleVisible'
   },
 
   toggleVisible: function() {  
-    APP.overCargoState = !APP.overCargoState;
+    APP.lathingState = !APP.lathingState;
     this.render();
   }   
 
