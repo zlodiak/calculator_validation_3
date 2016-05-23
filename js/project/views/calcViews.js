@@ -42,27 +42,35 @@ APP.CalcView = Backbone.View.extend({
 
     this.model.set(data);
 
+    console.log(this.model)
+
     var departCityValid = this.model.isValid('departCity'), 
         destinCityValid = this.model.isValid('destinCity'),
+
         shippOptionsWeightValid = this.model.isValid('shippOptionsWeight'),
         shippOptionsVolumeValid = this.model.isValid('shippOptionsVolume'),
         sizeLengthValid = this.model.isValid('sizeLength'),
         sizeWidthValid = this.model.isValid('sizeWidth'),
         sizeHeightValid = this.model.isValid('sizeHeight'),
+
+        overCargoWeightValid = this.model.isValid('overCargoWeight'),
+        overCargoVolumeValid = this.model.isValid('overCargoVolume'),
+        overCargoSizeLengthValid = this.model.isValid('overCargoSizeLength'),
+        overCargoSizeWidthValid = this.model.isValid('overCargoSizeWidth'),
+        overCargoSizeHeightValid = this.model.isValid('overCargoSizeHeight'),
+        overCargoExtraValid = this.model.isValid('overCargoExtra'),
+
+        lathingValid = this.model.isValid('lathing'),
+
         formValid = this.model.isValid(true);
 
-/*    console.log(formValid)
-    console.log(departCityValid, destinCityValid)
-    console.log(shippOptionsWeightValid, shippOptionsVolumeValid)
-    console.log(sizeLengthValid, sizeWidthValid, sizeHeightValid)*/
+        /* 
+          TODO: super puper calculate prica algoritm
+        */
 
     var cities = departCityValid && destinCityValid,
         shippOptions = shippOptionsWeightValid && shippOptionsVolumeValid,
         sizes = sizeLengthValid && sizeWidthValid && sizeHeightValid;
-
-/*    console.log('cities', cities)
-    console.log('shippOptions', shippOptions)
-    console.log('sizes', sizes)*/
 
     if(APP.shippOptionsSizeState) {
       if(cities && shippOptions && sizes) {
