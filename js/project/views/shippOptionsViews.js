@@ -2,6 +2,8 @@ APP.ShippOptionsView = Backbone.View.extend({
 
   initialize: function() {
     this.sizeWidget = new APP.SizeView({model: this.model});
+
+    this.listenTo(this.model, 'change:shippOptionsVolume', this.volumeUpdate);
   },
 
   id: 'shippOptionsWidget',
@@ -16,6 +18,11 @@ APP.ShippOptionsView = Backbone.View.extend({
     this.$el.find('.widget_content').append(sizeElem);
     
     return this;
+  },
+
+  volumeUpdate: function () {  
+    var volume = this.model.get('shippOptionsVolume');
+    this.$el.find('#fldShippOptionsVolume').val(volume);
   }
 
 });
@@ -54,10 +61,10 @@ APP.SizeView = Backbone.View.extend({
     var length =  this.$el.find('#fldSizeLength').val(),
         width =   this.$el.find('#fldSizeWidth').val(),
         height =  this.$el.find('#fldSizeHeight').val(),
-        value = length * width * height;
+        volume =  length * width * height;
 
-    if(APP.helper.isNumCheck(value)) { 
-      this.model.set({shippOptionsVolume: value});
+    if(APP.helper.isNumCheck(volume)) { 
+      this.model.set({shippOptionsVolume: volume});
     } else {
       this.model.set({shippOptionsVolume: undefined});
     };    
