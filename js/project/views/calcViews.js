@@ -22,7 +22,7 @@ APP.CalcView = Backbone.View.extend({
 
   template: _.template($('#calcTpl').html()),
 
-  render: function () {    
+  render: function () {  
     this.$el.html(this.template());    
     this.$el.find('#departCityWidgetCont').html(this.departCityWidget.render().el);
     this.$el.find('#destinCityWidgetCont').html(this.destinCityWidget.render().el);
@@ -41,8 +41,6 @@ APP.CalcView = Backbone.View.extend({
     var data = this.$el.find('#shippForm').serializeObject();
 
     this.model.set(data);
-
-    console.log(this.model)
 
     var departCityValid = this.model.isValid('departCity'), 
         destinCityValid = this.model.isValid('destinCity'),
@@ -68,21 +66,35 @@ APP.CalcView = Backbone.View.extend({
           TODO: super puper calculate prica algoritm
         */
 
-/*    var cities = departCityValid && destinCityValid,
+    var cities = departCityValid && destinCityValid,
         shippOptions = shippOptionsWeightValid && shippOptionsVolumeValid,
-        sizes = sizeLengthValid && sizeWidthValid && sizeHeightValid;
+        sizes = sizeLengthValid && sizeWidthValid && sizeHeightValid,
+        overCargo = overCargoWeightValid && overCargoVolumeValid,
+        overCargoSize = overCargoSizeLengthValid && overCargoSizeWidthValid && overCargoSizeHeightValid, 
+        lathing = lathingValid,
+        result = true;
 
-    if(APP.shippOptionsSizeState) {
-      if(cities && shippOptions && sizes) {
-        this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
-        $('#paymentModal').modal('show'); 
-      };
-    } else {
-      if(cities && shippOptions) {
-        this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
-        $('#paymentModal').modal('show'); 
-      };
-    };*/
+        console.log('cities', cities)
+        console.log('shippOptions', shippOptions)
+        console.log('APP.shippOptionsSizeState', APP.shippOptionsSizeState, sizes)
+        //console.log('sizes', sizeLengthValid, sizeWidthValid, sizeHeightValid)
+        console.log(this.model.attributes)
+
+
+    if(!cities) { console.log('1f'); result = false };
+
+    if(!shippOptions) { console.log('2f'); result = false };
+
+    if(APP.shippOptionsSizeState == true && sizes == false) { console.log('3f', APP.shippOptionsSizeState); result = false };
+
+/*    if(APP.overCargoState == true && overCargo == false) { console.log('4f'); result = false };
+
+    if(APP.overCargoState == true && APP.overCargoSizeState == true && overCargoSize == false) { console.log('5f'); result = false };*/
+
+    if(result == true) {  console.log('re', result)
+      this.$el.append(this.paymentModal.render({price: 222}).el);
+      $('#paymentModal').modal('show'); 
+    };
   },
     
   _computePrice: function() { 
