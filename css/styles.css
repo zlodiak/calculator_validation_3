@@ -64,6 +64,10 @@ INFO:
 		text-decoration: underline;
 	}
 
+.lathing_widget small{
+	color: #999;
+}
+
 /****************************************************************************** GLOBAL_layout */
 
 

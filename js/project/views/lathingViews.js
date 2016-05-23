@@ -2,6 +2,8 @@ APP.LathingView = Backbone.View.extend({
 
   id: 'lathingWidget',
 
+  className: 'lathing_widget',
+
   template: _.template($('#lathingTpl').html()),
 
   render: function () {  
