@@ -68,7 +68,7 @@ APP.CalcView = Backbone.View.extend({
           TODO: super puper calculate prica algoritm
         */
 
-    var cities = departCityValid && destinCityValid,
+/*    var cities = departCityValid && destinCityValid,
         shippOptions = shippOptionsWeightValid && shippOptionsVolumeValid,
         sizes = sizeLengthValid && sizeWidthValid && sizeHeightValid;
 
@@ -82,7 +82,7 @@ APP.CalcView = Backbone.View.extend({
         this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
         $('#paymentModal').modal('show'); 
       };
-    };
+    };*/
   },
     
   _computePrice: function() { 
