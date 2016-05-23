@@ -77,7 +77,7 @@
       <label>Длина</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldoverCargoSizeLength" value="<%= length %>" name="overCargoSizeLength">
+        <input type="text" class="form-control size" id="fldoverCargoSizeLength" value="<%= length %>" name="overCargoSizeLength">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -88,7 +88,7 @@
       <label>Ширина</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldOverCargoSizeWidth" value="<%= width %>" name="overCargoSizeWidth">
+        <input type="text" class="form-control size" id="fldOverCargoSizeWidth" value="<%= width %>" name="overCargoSizeWidth">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -99,7 +99,7 @@
       <label>Высота</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldOverCargoSizeHeight" value="<%= height %>" name="overCargoSizeHeight">
+        <input type="text" class="form-control size" id="fldOverCargoSizeHeight" value="<%= height %>" name="overCargoSizeHeight">
         <span class="input-group-addon">м</span>
       </div>
 

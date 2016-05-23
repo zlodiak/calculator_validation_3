@@ -27,3 +27,30 @@ $.fn.serializeObject = function () {
     };
     return $.each(this.serializeArray(), b), a
 };
+
+
+APP.helper = {
+  isEmptyCheck: function(value) { 
+    if($.trim(value).length == 0) { 
+      return true;  // is empty
+    };
+  },
+
+  isMinusNumCheck: function(value) { 
+    if(parseInt($.trim(value), 10) < 0) { 
+      return true;  // is negative number
+    };
+  },
+
+  isZeroCheck: function(value) { 
+    if(parseInt($.trim(value), 10) == 0) { 
+      return true;  // is zero
+    };
+  },
+
+  isNumCheck: function(value) { 
+    if(isNaN(parseInt($.trim(value), 10)) == false) { 
+      return true;  // is number
+    };
+  }   
+}

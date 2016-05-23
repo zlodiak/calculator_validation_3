@@ -47,7 +47,7 @@
       <label>Длина</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldSizeLength" value="<%= length %>" name="sizeLength">
+        <input type="text" class="form-control size" id="fldSizeLength" value="<%= length %>" name="sizeLength">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -58,7 +58,7 @@
       <label>Ширина</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldSizeWidth" value="<%= width %>" name="sizeWidth">
+        <input type="text" class="form-control size" id="fldSizeWidth" value="<%= width %>" name="sizeWidth">
         <span class="input-group-addon">м</span>
       </div>
 
@@ -69,7 +69,7 @@
       <label>Высота</label>
 
       <div class="input-group">
-        <input type="text" class="form-control" id="fldSizeHeight" value="<%= height %>" name="sizeHeight">
+        <input type="text" class="form-control size" id="fldSizeHeight" value="<%= height %>" name="sizeHeight">
         <span class="input-group-addon">м</span>
       </div>
 

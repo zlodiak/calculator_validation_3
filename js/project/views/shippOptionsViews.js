@@ -41,12 +41,26 @@ APP.SizeView = Backbone.View.extend({
   },
 
   events: {
-    'click #sizeVisibleToggler' : 'toggleVisible'
+    'click #sizeVisibleToggler' : 'toggleVisible',
+    'blur .size' : 'calculateSize'
   },
 
   toggleVisible: function() {
     APP.shippOptionsSizesState = !APP.shippOptionsSizesState;
     this.render();
-  }
+  },
+
+  calculateSize: function() {
+    var length =  this.$el.find('#fldSizeLength').val(),
+        width =   this.$el.find('#fldSizeWidth').val(),
+        height =  this.$el.find('#fldSizeHeight').val(),
+        value = length * width * height;
+
+    if(APP.helper.isNumCheck(value)) { 
+      this.model.set({shippOptionsVolume: value});
+    } else {
+      this.model.set({shippOptionsVolume: undefined});
+    };    
+  }  
 
 });
