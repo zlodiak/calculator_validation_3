@@ -77,7 +77,7 @@ APP.CalcView = Backbone.View.extend({
     if(APP.overCargoState == true && APP.overCargoSizeState == true && overCargoSize == false) { result = false };
 
     if(result == true) {  
-      this.$el.append(this.paymentModal.render({price: 222}).el);
+      this.$el.append(this.paymentModal.render({price: this._computePrice()}).el);
       $('#paymentModal').modal('show'); 
     };
   },
