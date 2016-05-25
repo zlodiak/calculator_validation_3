@@ -35,7 +35,7 @@ APP.SizeView = Backbone.View.extend({
   template: _.template($('#sizeTpl').html()),
 
   render: function () {  
-    var visibility = APP.shippOptionsSizesState ? 'show' : 'hide';
+    var visibility = APP.shippOptionsSizeState ? 'show' : 'hide';
 
     this.$el.html(this.template({
       visibility: visibility,
@@ -53,9 +53,9 @@ APP.SizeView = Backbone.View.extend({
   },
 
   toggleVisible: function() {
-    APP.shippOptionsSizesState = !APP.shippOptionsSizesState;
+    APP.shippOptionsSizeState = !APP.shippOptionsSizeState;
 
-    console.log('ch APP.shippOptionsSizesState', APP.shippOptionsSizesState)
+    console.log('ch APP.shippOptionsSizeState', APP.shippOptionsSizeState)
     this.render();
   },
 
