@@ -62,10 +62,6 @@ APP.CalcView = Backbone.View.extend({
 
         formValid = this.model.isValid(true);
 
-        /* 
-          TODO: super puper calculate prica algoritm
-        */
-
     var cities = departCityValid && destinCityValid,
         shippOptions = shippOptionsWeightValid && shippOptionsVolumeValid,
         sizes = sizeLengthValid && sizeWidthValid && sizeHeightValid,
@@ -74,30 +70,23 @@ APP.CalcView = Backbone.View.extend({
         lathing = lathingValid,
         result = true;
 
-        console.log('cities', cities)
-        console.log('shippOptions', shippOptions)
-        console.log('APP.shippOptionsSizeState', APP.shippOptionsSizeState, sizes)
-        //console.log('sizes', sizeLengthValid, sizeWidthValid, sizeHeightValid)
-        console.log(this.model.attributes)
+    if(!cities) { result = false };
+    if(!shippOptions) { result = false };
+    if(APP.shippOptionsSizeState == true && sizes == false) { result = false };
+    if(APP.overCargoState == true && overCargo == false) { result = false };
+    if(APP.overCargoState == true && APP.overCargoSizeState == true && overCargoSize == false) { result = false };
 
-
-    if(!cities) { console.log('1f'); result = false };
-
-    if(!shippOptions) { console.log('2f'); result = false };
-
-    if(APP.shippOptionsSizeState == true && sizes == false) { console.log('3f', APP.shippOptionsSizeState); result = false };
-
-/*    if(APP.overCargoState == true && overCargo == false) { console.log('4f'); result = false };
-
-    if(APP.overCargoState == true && APP.overCargoSizeState == true && overCargoSize == false) { console.log('5f'); result = false };*/
-
-    if(result == true) {  console.log('re', result)
+    if(result == true) {  
       this.$el.append(this.paymentModal.render({price: 222}).el);
       $('#paymentModal').modal('show'); 
     };
   },
     
   _computePrice: function() { 
+    /* 
+      TODO: super puper calculate price algoritm
+    */
+            
     var weight = this.model.get('shippOptionsWeight'),
         volume = this.model.get('shippOptionsVolume'),
         length = this.model.get('sizeLength'),

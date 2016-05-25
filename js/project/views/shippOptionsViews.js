@@ -54,8 +54,6 @@ APP.SizeView = Backbone.View.extend({
 
   toggleVisible: function() {
     APP.shippOptionsSizeState = !APP.shippOptionsSizeState;
-
-    console.log('ch APP.shippOptionsSizeState', APP.shippOptionsSizeState)
     this.render();
   },
 

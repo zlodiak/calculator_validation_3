@@ -105,8 +105,6 @@ APP.OverCargoSizeView = Backbone.View.extend({
     } else {
       this.model.set({overCargoVolume: undefined});
     };  
-
-    console.log(length, width, height, volume, this.model)  
   } 
 
 });
